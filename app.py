@@ -1,5 +1,5 @@
 from selenium import webdriver
-PATH = "C:\Users\alexa\Desktop\CodeJam"
+PATH = "C:\Program Files (x86)\chromedriver.exe"
 
 driver = webdriver.Chrome(PATH)
 
