@@ -2,18 +2,55 @@ from _init_ import getDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 import time
 
+
+def getPrice():
+    price = 0
+    try:
+        price = driver.find_element_by_id('priceblock_ourprice').text
+        price = convert_price(price)
+    except NoSuchElementException:
+        try:
+            availability = driver.find_element_by_id('availability').text
+            if 'Available' in availability:
+                price = driver.find_element_by_class_name('olp-padding-right').text
+                price = convert_price(price[price.find("$"):])
+        except Exception as e:
+            return None
+    except Exception as e:
+        return None
+    return price
+
+def convert_price(price):
+        price = price.split("$")[1]
+        try:
+            price = price.split("\n")[0] + "." + price.split("\n")[1]
+        except:
+            Exception()
+        try:
+            price = price.split(",")[0] + price.split(",")[1]
+        except:
+            Exception()
+        return float(price)
+
+def getname():
+    try:
+        return driver.find_element_by_id('productTitle').text
+    except Exception as e:
+        return None
+
+
+
 driver = getDriver()
-#https://www.amazon.ca/TCL-50S425-CA-Ultra-Smart-Television/dp/B07KG318MQ/ref=sr_1_5?dchild=1&keywords=tv&qid=1605318869&sr=8-5
-driver.get("https://www.amazon.ca/iRobot-Roomba-Connected-Automatic-Disposal/dp/B085D45SZF?ref_=Oct_DLandingS_D_93ee8e93_60&smid=A3DWYIK6Y9EEQB")
-try:
-    priceid = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "price"))
-    )
+links = ["https://www.amazon.ca/TCL-50S425-CA-Ultra-Smart-Television/dp/B07KG318MQ/ref=sr_1_5?dchild=1&keywords=tv&qid=1605318869&sr=8-5","https://www.amazon.ca/dp/B01BPPSBTK/ref=cm_gf_aAN_i1_i3_i6_d_p0_qd0_wPFEEALzidTsfBmMC806","https://www.amazon.ca/dp/B00VTA9F6U/ref=cm_gf_aAN_i14_i19_i3_d_p0_qd0_q73tnhRj2xXY2S5lJSDH"]
+for link in links:
+    driver.get(link)
+    price = getPrice()
+    name = getname()
 
-except:
-    driver.quit()
+    print(link)
+    print(name)
+    print(price)
 
-price = priceid.text[11:20]
-print(price)
