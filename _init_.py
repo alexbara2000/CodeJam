@@ -1,6 +1,6 @@
 from selenium import webdriver
-PATH = "chromedriver.exe"
 
-def getDriver():
+
+def getDriver(PATH = "chromedriver.exe"):
      return webdriver.Chrome(PATH)
 
