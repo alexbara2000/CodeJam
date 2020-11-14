@@ -1,6 +1,6 @@
-from selenium import webdriver
-PATH = "chromedriver.exe"
+from _init_ import getDriver
 
-driver = webdriver.Chrome(PATH)
+driver = getDriver()
 
 driver.get("https://www.youtube.com/watch?v=Xjv1sY630Uc&ab_channel=TechWithTim")
+
