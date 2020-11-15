@@ -14,7 +14,8 @@ def getConnection():
 def getCursor():
     return cr
 
-sql = "SELECT * FROM test"
-cr.execute(sql)
-result = cr.fetchall()
-print(result)
+def getRowsFromItem1():
+    sql = 'SELECT * FROM items1'
+    cr.execute(sql)
+    return cr.fetchall()
+
