@@ -1,9 +1,9 @@
 import smtplib
 
 
-def sendemail():
-    sender_email = "amazondiscountgiver@gmail.com"
-    rec_email = "alexandrubara2000@gmail.com"
+def sendemail(sender, receiver):
+    sender_email = sender
+    rec_email = receiver
     password = "Qazwsxedc123!"
     oldPrice = 499.99
     newPrice = 256.78
@@ -22,4 +22,4 @@ def sendemail():
     server.sendmail(sender_email, rec_email, message)
 
 
-sendemail()
+sendemail("amazondiscountgiver@gmail.com","psnmeee@gmail.com")

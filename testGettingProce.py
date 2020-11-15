@@ -52,11 +52,11 @@ def getData(url):
 
 
 # driver = getDriver()
-links = ["https://www.amazon.ca/TCL-50S425-CA-Ultra-Smart-Television/dp/B07KG318MQ/ref=sr_1_5?dchild=1&keywords=tv&qid=1605318869&sr=8-5","https://www.amazon.ca/dp/B01BPPSBTK/ref=cm_gf_aAN_i1_i3_i6_d_p0_qd0_wPFEEALzidTsfBmMC806","https://www.amazon.ca/dp/B00VTA9F6U/ref=cm_gf_aAN_i14_i19_i3_d_p0_qd0_q73tnhRj2xXY2S5lJSDH"]
+#links = ["https://www.amazon.ca/TCL-50S425-CA-Ultra-Smart-Television/dp/B07KG318MQ/ref=sr_1_5?dchild=1&keywords=tv&qid=1605318869&sr=8-5","https://www.amazon.ca/dp/B01BPPSBTK/ref=cm_gf_aAN_i1_i3_i6_d_p0_qd0_wPFEEALzidTsfBmMC806","https://www.amazon.ca/dp/B00VTA9F6U/ref=cm_gf_aAN_i14_i19_i3_d_p0_qd0_q73tnhRj2xXY2S5lJSDH"]
 
-data = getData(links[0])
+#data = getData(links[0])
 
-print(data)
+#print(data)
 # for link in links:
 #     driver.get(link)
 #     price = getPrice()

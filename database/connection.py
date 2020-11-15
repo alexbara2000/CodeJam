@@ -11,3 +11,5 @@ cr = db.cursor()
 
 def getCursor():
     return cr
+
+print(cr.execute("SELECT * FROM items"))
