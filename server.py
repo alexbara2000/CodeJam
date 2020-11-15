@@ -1,7 +1,7 @@
 import time
 import sys
 sys.path.insert(0, './database')
-import connection
+#import connection
 from _init_ import getDriver
 import testGettingProce as prices
 import emailsend
@@ -11,11 +11,8 @@ import emailsend
 running = True
 driver = getDriver()
 while running:
-    
-    sql = "SELECT * From items1"
-    cr = connection.getCursor()
-    cr.execute(sql)
-    alldata = cr.fetchall()
+    import connection
+    alldata = connection.getRowsFromItem1()
 
     for data in alldata:
         try: 
@@ -31,6 +28,7 @@ while running:
             print(link)
             if price < oldPrice:
                 #in here can you change the price in data base to be the value of "price"
+                connection.UpdatePrice(link, price)
                 print("rebate")
                 try:
                     emailsend.sendemail(email, oldPrice, price, name, link)

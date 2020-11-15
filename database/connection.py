@@ -19,3 +19,13 @@ def getRowsFromItem1():
     cr.execute(sql)
     return cr.fetchall()
 
+
+def UpdatePrice(url, newPrice):
+    sql = f'SELECT * FROM items1 WHERE url=\'{url}\''
+    cr.execute(sql)
+    old = cr.fetchone()
+    sql = f'DELETE FROM items1 WHERE url=\'{url}\''
+    cr.execute(sql)
+    sql = f'Insert INTO items1 (url, name,Price , email) VALUES (\'{old[1]}\', \'{old[2]}\',\'{newPrice}\', \'{old[4]}\')'
+    cr.execute(sql)
+    db.commit()
