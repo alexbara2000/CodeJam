@@ -18,22 +18,26 @@ while running:
     alldata = cr.fetchall()
 
     for data in alldata:
-        link = data[1]
-        name = data[2]
-        oldPrice = float(data[3])
-        email = data[4]
-        driver.get(link)
-        price = prices.getPrice(driver)
-        print(name)
-        print(oldPrice)
-        print(price)
-        print(link)
-        if price < oldPrice:
-            print("rebate")
-            try:
-                emailsend.sendemail(email, oldPrice, price, name, link)
-            except:
-                print("error")
+        try: 
+            link = data[1]
+            name = data[2]
+            oldPrice = float(data[3])
+            email = data[4]
+            driver.get(link)
+            price = prices.getPrice(driver)
+            print(name)
+            print(oldPrice)
+            print(price)
+            print(link)
+            if price < oldPrice:
+                #in here can you change the price in data base to be the value of "price"
+                print("rebate")
+                try:
+                    emailsend.sendemail(email, oldPrice, price, name, link)
+                except:
+                    print("error")
+        except:
+            print("error")
 
     time.sleep(60)
     
