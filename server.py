@@ -1,18 +1,25 @@
 import time
 import sys
 sys.path.insert(0, './database')
-#import connection
+import connection
 from _init_ import getDriver
 import testGettingProce as prices
 import emailsend
-
+import pymysql
 
 
 running = True
 driver = getDriver()
 while running:
-    import connection
-    alldata = connection.getRowsFromItem1()
+    
+    db = pymysql.connect(
+        host='us-cdbr-east-02.cleardb.com',
+        user='bc9047f246620c',
+        password='fec4305d',
+        db='heroku_bd0b73b73c741f0')
+    
+    cr = db.cursor()
+    alldata = connection.getRowsFromItem1(cr)
 
     for data in alldata:
         try: 

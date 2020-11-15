@@ -19,6 +19,11 @@ def getRowsFromItem1():
     cr.execute(sql)
     return cr.fetchall()
 
+def getRowsFromItem1(cr):
+    sql = 'SELECT * FROM items1'
+    cr.execute(sql)
+    return cr.fetchall()
+
 
 def UpdatePrice(url, newPrice):
     sql = f'SELECT * FROM items1 WHERE url=\'{url}\''
@@ -29,3 +34,7 @@ def UpdatePrice(url, newPrice):
     sql = f'Insert INTO items1 (url, name,Price , email) VALUES (\'{old[1]}\', \'{old[2]}\',\'{newPrice}\', \'{old[4]}\')'
     cr.execute(sql)
     db.commit()
+
+#cr.execute('SET GLOBAL connect_timeout=6000')
+#db.commit()
+#print("x")
