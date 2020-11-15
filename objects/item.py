@@ -17,12 +17,10 @@ class item:
         print(self.url + self.name + str(self.price))
 
     def insertDB(self):
-        print(self.url)
-        sql = f'Insert INTO items (url, name, email) VALUES (\'{self.url}\', \'{self.name}\', \'none\')'
+        sql = f'Insert INTO items1 (url, name,Price , email) VALUES (\'{self.url}\', \'{self.name}\',\'{self.price}\', \'none\')'
         cr = connection.getCursor()
         cr.execute(sql)
         db = connection.getConnection()
         db.commit()
-
 
 
