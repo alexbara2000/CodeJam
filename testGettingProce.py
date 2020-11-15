@@ -49,15 +49,3 @@ def getData(url, ref):
 
 
 
-
-
-# driver = getDriver()
-# for link in links:
-#     driver.get(link)
-#     price = getPrice()
-#     name = getname()
-
-#     print(link)
-#     print(name)
-#     print(price)
-
