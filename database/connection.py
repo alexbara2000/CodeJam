@@ -8,8 +8,13 @@ db = pymysql.connect(
 
 cr = db.cursor()
 
+def getConnection():
+    return db
 
 def getCursor():
     return cr
 
-print(cr.execute("SELECT * FROM items"))
+sql = "SELECT * FROM test"
+cr.execute(sql)
+result = cr.fetchall()
+print(result)
