@@ -19,7 +19,7 @@ while link != "n":
     except:
         print("404 error")
 
-
+print("Success")
 
 
 
